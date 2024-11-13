@@ -47,7 +47,7 @@
                             @enderror
                         </label>
                         </div>
-                        <button class="mt-8 text-xl min-w-lg main-button" type="submit">Submit Event</button>
+                        <button class="mt-8 min-w-lg main-button" type="submit">Submit Event</button>
                     </form>
                 </div>
             </div>

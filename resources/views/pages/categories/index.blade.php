@@ -166,7 +166,7 @@
                         </div>
                     @enderror
                 </label>
-                <button class="w-full mt-8 text-xl main-button" type="submit">Submit Categories</button>
+                <button class="w-full mt-8 main-button" type="submit">Submit Categories</button>
             </form>
 
             <div class="w-full mt-3 modal-action">

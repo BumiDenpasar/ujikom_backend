@@ -18,12 +18,12 @@
 
                         <div class="input-cluster">
                             {{-- name --}}
-                            <label class="w-full max-w-xs form-control">
+                            <label class="w-full form-control">
                                 <div class="label">
                                     <span class="label-text">Event's Name</span>
                                 </div>
                                 <input type="text" name="name" placeholder="Type here"
-                                    class="w-full max-w-xs input input-bordered" 
+                                    class="w-full input input-bordered" 
                                     value="{{ old('name') }}" />
                                 @error('name')
                                     <div class="label error">
@@ -33,12 +33,12 @@
                             </label>
 
                             {{-- short desc --}}
-                            <label class="w-full max-w-xs form-control">
+                            <label class="w-full form-control">
                                 <div class="label">
                                     <span class="label-text">Short Description</span>
                                 </div>
                                 <input type="text" name="short_desc" placeholder="Summarize the event's here"
-                                    class="w-full max-w-xs input input-bordered"
+                                    class="w-full input input-bordered"
                                     value="{{ old('short_desc') }}" />
                                 @error('short_desc')
                                     <div class="label error">
@@ -64,12 +64,12 @@
 
                         <div class="input-cluster">
                             {{-- img --}}
-                            <label class="w-full max-w-xs form-control">
+                            <label class="w-full form-control">
                                 <div class="label">
                                     <span class="label-text">Event's logo</span>
                                 </div>
                                 <input type="file" name="img"
-                                    class="w-full max-w-xs file-input file-input-bordered"
+                                    class="w-full file-input file-input-bordered"
                                     accept="image/*" />
                                 @error('img')
                                     <div class="label error">
@@ -79,13 +79,13 @@
                             </label>
 
                             {{-- social media --}}
-                            <label class="w-full max-w-xs form-control">
+                            <label class="w-full form-control">
                                 <div class="label">
                                     <span class="label-text">Social media</span>
                                 </div>
                                 <input type="text" name="social_media"
                                     placeholder="Paste your social media profile link here"
-                                    class="w-full max-w-xs input input-bordered"
+                                    class="w-full input input-bordered"
                                     value="{{ old('social_media') }}" />
                                 @error('social_media')
                                     <div class="label error">
@@ -98,12 +98,12 @@
                         {{-- time --}}
                         <div class="input-cluster">
                             {{-- date --}}
-                            <label class="w-full max-w-xs form-control">
+                            <label class="w-full form-control">
                                 <div class="label">
                                     <span class="label-text">Event's date</span>
                                 </div>
                                 <input name="date" type="date"
-                                    class="w-full max-w-xs text-neutral-500 input input-bordered"
+                                    class="w-full text-neutral-500 input input-bordered"
                                     value="{{ old('date') }}" />
                                 @error('date')
                                     <div class="label error">
@@ -111,9 +111,9 @@
                                     </div>
                                 @enderror
                             </label>
-                            <label class="w-full max-w-xs form-control without-label">
+                            <label class="w-full form-control without-label">
                                 <input name="time_start" type="text" placeholder="Time Start (ex. 10)"
-                                    class="w-full max-w-xs input input-bordered"
+                                    class="w-full input input-bordered"
                                     value="{{ old('time_start') }}" />
                                 @error('time_start')
                                     <div class="label error">
@@ -122,9 +122,9 @@
                                 @enderror
                             </label>
 
-                            <label class="w-full max-w-xs form-control without-label">
+                            <label class="w-full form-control without-label">
                                 <input name="time_end" type="text" placeholder="Time End (ex. 14)"
-                                    class="w-full max-w-xs input input-bordered"
+                                    class="w-full input input-bordered"
                                     value="{{ old('time_end') }}" />
                                 @error('time_end')
                                     <div class="label error">
@@ -134,7 +134,7 @@
                             </label>
                         </div>
 
-                        <button class="mt-8 text-xl min-w-lg main-button" type="submit">Submit Event</button>
+                        <button class="mt-8 min-w-lg main-button" type="submit">Submit Event</button>
                     </form>
                 </div>
             </div>

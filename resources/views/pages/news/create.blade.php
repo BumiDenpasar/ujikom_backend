@@ -79,7 +79,8 @@
                                 @enderror
                             </label>
 
-                        <button class="mt-8 text-xl min-w-lg main-button" type="submit">Submit News</button>
+                        </div>
+                        <button class="mt-8 min-w-lg main-button" type="submit">Submit News</button>
                     </form>
                 </div>
             </div>

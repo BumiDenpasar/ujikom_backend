@@ -20,7 +20,7 @@
                         Create New Gallery
                     </button>
 
-                    <di class="flex flex-wrap justify-center w-full">
+                    <div class="flex flex-wrap justify-center w-full">
                         @foreach ($galleries as $gallery)
                             <a href={{route('dashboard.galleries.show', $gallery)}} class="relative w-56 m-2 overflow-hidden transition-all duration-500 bg-center bg-cover drop-shadow-lg hover:drop-shadow-2xl h-80 rounded-2xl group hover:scale-110"
                                 style="background-image: url({{ $gallery->img }})">
@@ -95,7 +95,7 @@
                                                 </div>
                                             @enderror
                                         </label>
-                                        <button class="w-full mt-8 text-xl main-button" type="submit">Update
+                                        <button class="w-full mt-8 main-button" type="submit">Update
                                             Gallery</button>
                                     </form>
 
@@ -130,7 +130,7 @@
                                 </div>
                             </dialog>
                         @endforeach
-                    </di>
+                    </div>
                 </div>
             </div>
         </div>
@@ -192,7 +192,7 @@
                         </div>
                     @enderror
                 </label>
-                <button class="w-full mt-8 text-xl main-button" type="submit">Submit Gallery</button>
+                <button class="w-full mt-8 main-button" type="submit">Submit Gallery</button>
             </form>
 
             <div class="w-full mt-3 modal-action">

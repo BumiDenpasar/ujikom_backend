@@ -2,8 +2,249 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Menambahkan font Poppins */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Regular.woff2') format('woff2'),
+         url('/fonts/Poppins-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Medium.woff2') format('woff2'),
+         url('/fonts/Poppins-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-SemiBold.woff2') format('woff2'),
+         url('/fonts/Poppins-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Bold.woff2') format('woff2'),
+         url('/fonts/Poppins-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Jika Anda menggunakan font italic, tambahkan aturan serupa untuk font-style: italic */
+@font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/Poppins-Italic.woff2') format('woff2'),
+         url('/fonts/Poppins-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+
 
 @layer components {
+    .main-body{
+        @apply min-h-screen pt-5 
+    }
+
+    .main-content{
+        @apply -z-50
+    }
+
+    .body-full{
+        @apply min-h-screen pt-5 bg-gradient-to-br from-white to-blue-100 overflow-x-hidden w-screen h-max
+    }
+
+    .nav {
+        @apply fixed top-5 right-0 left-0 z-50
+    }
+
+
+    .section-flex{
+        @apply w-screen h-max pb-10 flex items-center justify-between font-poppins px-28 relative animate-fadeIn
+    }
+
+    .hero-text{
+        @apply w-[110rem] flex flex-col space-y-10 pt-5 mr-5
+    }
+
+    .statistics{
+        @apply bg-gradient-to-br from-blue-900 to-blue-600 transition-all duration-500 text-white rounded-2xl px-7 py-8 w-full text-center
+    }
+
+    .students-statistics{
+        @apply animate-downUp
+    }
+
+    .majors-statistics{
+        @apply animate-upDown
+    }
+
+    .industry-statistics{
+        @apply animate-downUp
+    }
+
+    .statistics-container{
+        @apply space-x-10 font-sans mt-5
+    }
+
+    .statistics h1{
+        @apply font-bold text-4xl
+    }
+
+    .statistics p{
+        @apply text-sm text-blue-300
+    }
+
+    .category{
+        @apply flex flex-wrap w-full mt-5 space-x-1
+    }
+
+
+    .category-recent{
+        @apply flex flex-wrap w-full space-x-1 font-bold
+    }
+
+    .guest-category-button-sm{
+        @apply text-blue-800 text-xs
+    }
+
+    .guest-category-button{
+        @apply h-10 px-4 overflow-hidden text-sm font-bold text-white transition-all duration-300 bg-blue-600 bg-center bg-cover shadow-lg hover:shadow-2xl rounded-2xl hover:scale-90
+    }
+
+    .news-title-small{
+        @apply font-semibold text-lg mt-3
+    }
+
+    .news-info-small{
+        @apply text-xs tracking-wide mt-2 text-neutral-400
+    }
+
+    .recent-news{
+        @apply flex flex-col space-y-4 w-1/2 flex-none
+    }
+
+
+    .news-card img{
+        @apply rounded-2xl aspect-[4/3] w-[10rem] object-cover
+    }
+
+    .news{
+        @apply space-x-5 h-max flex xl:flex-row flex-col px-28 mt-24
+    }
+
+    .news-card{
+        @apply bg-white rounded-2xl p-6 shadow-lg flex space-x-5 items-center h-full
+    }
+
+    .news-text{
+        @apply flex flex-col justify-center
+    }
+    
+    
+    .top-news{
+        @apply bg-white p-10 rounded-2xl w-full xl:w-1/2 font-sans
+    }
+
+    .news-title{
+        @apply font-semibold text-3xl mt-3
+    }
+
+    .news-info{
+        @apply text-sm tracking-wide mt-2 text-neutral-400
+    }
+
+    .top-news img{
+        @apply rounded-2xl object-cover
+    }
+
+
+    .hero-text h5{
+        @apply font-bold text-blue-400 text-lg
+    }
+
+    .text-cluster{
+        @apply flex flex-col -space-y-3 mt-3
+    }
+
+    .hero-text a{
+        @apply w-max font-bold hover:scale-90 transition-all duration-500
+        px-6 bg-gradient-to-br from-blue-800 to-blue-500 text-white text-sm rounded-2xl py-4
+    }
+
+    .hero-text h1{
+        @apply font-bold tracking-wide text-neutral-900 text-[45px] w-full
+    }
+
+    .hero-text p{
+        @apply tracking-wide  text-neutral-500 font-thin mt-5 text-[12px] w-full
+    }
+
+    .hero-banner{
+        @apply relative
+    }
+
+    .hero-banner img{
+        @apply h-full aspect-square object-cover rounded-3xl
+    }
+
+    .hover-text{
+        @apply flex flex-col font-sans
+    }
+
+    .hover-text h6{
+        @apply font-bold text-xs 2xl:text-base
+    }
+
+    .hover-2{
+        @apply flex items-center space-x-5 px-5 py-4 rounded-2xl animate-downUp shadow-lg bg-white/70 backdrop-blur-sm border border-white/50 
+    }
+
+    .hover-3{
+        @apply flex items-center space-x-5 px-5 py-4 rounded-2xl animate-downUp bg-white/70 backdrop-blur-sm border border-white/50 shadow-lg
+    }
+
+    .hover-container{
+        @apply absolute bottom-6 -right-20 flex flex-col space-y-3
+    }
+
+    .avatar-width{
+        @apply w-6
+    }
+
+    .avatar-container{
+        @apply -space-x-2 avatar-group rtl:space-x-reverse
+    }
+
+    .avatar{
+        @apply border-2
+    }
+
+    .hover-1{
+        @apply flex  flex-col relative shadow-xl justify-center items-center 
+        space-x-5 px-2 py-5 rounded-2xl animate-downUp pr-7 bg-white/60 
+        backdrop-blur-sm border border-white/70  w-max pt-7 space-y-2 text-neutral-800 
+        tracking-wider font-bold font-sans text-xs xl:text-sm 2xl:text-base
+    }
+
+    .absolute-1{
+        @apply absolute top-[10%] -left-24
+    }
+
+    .hover-icon{
+        @apply w-6
+    }
+
+    .toga{
+        @apply flex flex-col absolute -top-10 right-0 left-0 mx-auto w-max rounded-full p-2 bg-blue-200 text-blue-600 justify-center items-center space-x-5 px-6 py-5
+    }
+    
+
     .delete-button-rounded{
         @apply p-2 text-white duration-300 bg-red-500 rounded-full hover:border hover:border-red-500  hover:text-red-500 hover:bg-white drop-shadow-lg
     }
@@ -17,7 +258,7 @@
     }
 
     .main-button{
-        @apply btn btn-primary rounded-2xl font-semibold  transition-all duration-500
+        @apply btn btn-primary rounded-2xl font-semibold transition-all duration-500
     }
 
     .main-card{
@@ -83,5 +324,154 @@
     .without-label{
         @apply mt-14
     }
+
+
+
+    .dashboard-card{
+        @apply p-6 text-white tracking-wide w-full h-max rounded-3xl bg-gradient-to-br from-blue-950 to-blue-500 
+    }
+
+    .dashboard-card h1{
+        @apply text-2xl w-[20rem] font-semibold
+    }
+
+
+    .dashboard-card span{
+        @apply text-2xl
+    }
+
+    .dashboard-card p{
+        @apply text-sm ml-1 text-blue-300
+    }
+
+    .dashboard-card a{
+        @apply text-blue-800 bg-white hover:bg-blue-800/10 backdrop-blur-0 hover:backdrop-blur-lg transition-all duration-700 hover:text-white hover:border-blue-200
+    }
+
+    
+
+    .btn{
+        @apply rounded-2xl
+    }
+
+    .dashboard-card-bottom{
+        @apply flex items-end justify-between mt-3
+    }
+
+
+    .dashboard-left{
+        @apply flex flex-col w-[40rem]
+    }
+
+    .dashboard-news{
+        @apply flex w-[40rem] flex-wrap justify-between 
+    }
+
+    .dashboard-card-white{
+        @apply p-6 text-neutral-900 border border-neutral-300 mt-5 tracking-wide min-w-[19.5rem] shadow-xl bg-white h-max rounded-3xl 
+    }
+
+    .dashboard-card-white h5{
+        @apply text-sm text-neutral-500
+    }
+
+    .dashboard-card-white h1{
+        @apply text-[2.5rem] font-semibold text-blue-800
+    }
+
+    .dashboard-main{
+        @apply flex justify-center space-x-5 max-w-[85rem] flex-wrap lg:flex-nowrap
+    }
+
+    .upcoming-events a{
+        @apply w-full
+    }
+
+
+    .dashboard-right{
+        @apply flex flex-col w-[25rem]
+    }
+
+    .upcoming-events{
+        @apply w-full flex flex-col justify-between  bg-white rounded-3xl shadow-xl px-8 py-7 border border-neutral-300
+    }
+
+
+    .upcoming-events h1{
+        @apply text-2xl font-bold border-b  pb-3    
+    }
+
+    .upcoming-events-head{
+        @apply w-full rounded-3xl bg-gradient-to-t from-blue-50 to-cyan-50 mt-5
+    }
+
+    .upcoming-events-card{
+        @apply flex space-x-5 items-center
+    }
+
+    .upcoming-events-list{
+        @apply flex flex-col space-y-3 mt-5
+    }
+
+    .upcoming-events-card img{
+        @apply w-10 aspect-square object-contain
+    }
+
+    .upcoming-events-card h5{
+        @apply text-base font-bold
+    }
+
+    .upcoming-events-card p{
+        @apply text-sm text-neutral-500
+    }
+    .upcoming-events-list{
+        @apply w-full
+    }
+
+    .upcoming-events-button{
+        @apply main-button mt-5 w-full
+    }
+
+    .recent-comment-date{
+        @apply text-xs text-neutral-500
+    }
+
+    .recent-comment-text{
+        @apply mt-0 text-sm
+    }
+
+    .recent-comment-name{
+        @apply flex items-center space-x-2
+    }
+
+    .backdrop-1{
+        @apply absolute top-[-3rem] right-[5rem] w-36 animate-upDown
+    }
+
+    .backdrop-2{
+        @apply absolute top-[33em] left-[-10rem] w-52 animate-upDown
+    }
+
+    .backdrop-3{
+        @apply absolute top-[60em] right-[-1rem] w-52
+    }
+
+    .quick-actions{
+        @apply p-6 tracking-wide w-full h-max rounded-3xl bg-white shadow-lg border border-neutral-300
+    }
+    .quick-actions-list{
+        @apply flex items-center justify-center h-32 mt-3
+    }
+
+    .quick-actions h1{
+        @apply text-2xl font-bold border-b pb-2 mx-2
+    }
+
+    .add-dashboard{
+        @apply flex items-center justify-center m-2 transition-all duration-300 text-blue-700 border border-blue-200 font-bold
+         bg-gradient-to-br from-blue-200 to-blue-50 w-full h-full rounded-2xl hover:text-black hover:scale-90
+    }
+
+
 
 }

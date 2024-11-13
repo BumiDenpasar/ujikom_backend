@@ -35,6 +35,16 @@ class Post extends Model
         return $this->hasMany(Love::class);
     }
 
+     public function getLovesCountAttribute(): int
+     {
+         return $this->loves()->count();
+     }
+ 
+     public function getCommentsCountAttribute(): int
+     {
+         return $this->comments()->count();
+     }
+
     public function user()
     {
         return $this->belongsTo(User::class);

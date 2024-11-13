@@ -1,4 +1,4 @@
-<nav x-data="{ open: false }" class="mx-auto mt-5 bg-white border-b border-gray-100 min-w-[90%] md:min-w-0 w-max rounded-2xl drop-shadow-lg">
+<nav x-data="{ open: false }" class="mx-auto bg-white border-b border-gray-100 min-w-[90%] md:min-w-0 w-max rounded-2xl drop-shadow-lg main-navbar">
     <!-- Primary Navigation Menu -->
     <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -48,7 +48,7 @@
                         </button>
                     </x-slot>
 
-                    <x-slot name="content">
+                    <x-slot name="content" class="header-dropdown">
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>

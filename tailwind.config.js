@@ -13,7 +13,43 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                poppins: ['Poppins', 'Arial', 'sans-serif'],
             },
+
+            animation: {
+                fadeIn: 'fadeIn 1s ease-out',
+                slideLeft: 'slideLeft 1s ease-out forwards',
+                slideRight: 'slideRight 1s ease-out forwards',
+                upDown: 'upDown 3s ease-in-out infinite',
+                downUp: 'downUp 3s ease-in-out infinite',
+
+            },
+            keyframes: {
+                fadeIn: {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' },
+                },
+
+                upDown: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(-10px)' },
+                },
+
+                downUp: {
+                    '0%, 100%': { transform: 'translateY(0)' },
+                    '50%': { transform: 'translateY(10px)' }, 
+                },
+
+                slideLeft: {
+                    '0%': { transform: 'translateX(10%)', opacity: '0' },
+                    '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+
+                slideRight: {
+                    '0%': { transform: 'translateX(-10%)', opacity: '0' },
+                    '100%': { transform: 'translateX(0)', opacity: '1' },
+                }
+            }
         },
     },
 

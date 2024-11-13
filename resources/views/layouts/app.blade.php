@@ -17,13 +17,15 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+    <body class="font-sans antialiased body-full">
+
+       
+        <div class="main-body">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
             @isset($header)
-                <header class="">
+                <header class="main-header">
                     <div class="flex justify-center mx-auto mt-10 max-w-7xl sm:px-6 lg:px-14 ">
                         {{ $header }}
                     </div>
@@ -31,9 +33,10 @@
             @endisset
 
             <!-- Page Content -->
-            <main>
+            <main class="main-content">
                 {{ $slot }}
             </main>
         </div>
+
     </body>
 </html>
