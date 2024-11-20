@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(AuthController::class)->group(function(){
     Route::post('register', 'register');
     Route::post('login', 'login');
+    Route::post('logout', 'logout');
 });
          
 Route::middleware('auth:sanctum')->group( function () {
@@ -30,6 +31,8 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('check-token', [TokenController::class, 'index'])->name('tokens.index');
 
     Route::put('profile/update', [AuthController::class, 'updateProfile'])->name('profile.update');
+    
+    Route::post('logout', [AuthController::class, 'logout'])->name('auth.logout');
     
     Route::post('posts/{post}/comment', [PostController::class, 'addComment'])->name('posts.addComment');
     Route::post('posts/{post}/like', [PostController::class, 'likePost'])->name('posts.likePost');
@@ -57,7 +60,7 @@ Route::get('categories', [CategoryController::class, 'index'])->name('categories
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 
 Route::get('posts', [PostController::class, 'index'])->name('posts.index');
-Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::post('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 
 Route::get('socials', [SocialController::class, 'index'])->name('socials.index');
 Route::get('socials/{social}', [SocialController::class, 'show'])->name('socials.show');

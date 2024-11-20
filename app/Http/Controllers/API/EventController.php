@@ -56,9 +56,8 @@ class EventController extends BaseController
         $event = Event::create($input);
 
         if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('public/images');
-            $imageUrl = str_replace('public/', 'storage/', $imagePath);
-            $event->img = $imageUrl;
+            $imagePath = $request->file('img')->store('images', 'public');
+            $event->img = '/storage/' . $imagePath;            
             $event->save();
         }
 
@@ -137,10 +136,9 @@ class EventController extends BaseController
         
 
         if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('public/images');
+            $imagePath = $request->file('img')->store('images', 'public');
             $imageUrl = str_replace('public/', 'storage/', $imagePath);
-            $event->img = $imageUrl;
-        }
+            $event->img = '/storage/' . $imagePath;        }
 
         $event->save();
 

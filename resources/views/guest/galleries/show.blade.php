@@ -11,8 +11,6 @@
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="style.css">
-
     <!-- Styles / Scripts -->
     @if (file_exists(public_path('build/manifest.json')) || file_exists(public_path('hot')))
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -908,251 +906,57 @@
     @endif
 </head>
 
-<body class="w-screen overflow-x-hidden font-sans bg-gradient-to-b from-blue-50 via-blue-50 to-blue-100">
+<body
+    class="w-screen min-h-screen overflow-x-hidden font-sans pt-28 bg-gradient-to-b from-blue-50 via-blue-50 to-blue-100">
 
     <x-guest-nav />
 
 
-    <x-backdrop-1 />
-
-    {{-- HERO --}}
-    <div class="section-flex pt-28 hero-section">
-
-
-        <x-backdrop-2 />
-
-
-        <img class="block object-cover rounded-2xl aspect-square md:hidden" src="assets/images/banner.webp">
-
-        <div class="hero-text">
-            <div>
-                <h5>{{$hero->subtitle}}</h5>
-
-                <div
-                    class="font-sans text-3xl font-bold tracking-tight text-gray-900 text-cluster sm:text-4xl sm:leading-none">
-                    <h1>{{$hero->title}}</h1>
-                </div>
-
-                <p>{{$hero->desc}}</p>
-            </div>
-
-            <a href="https://drive.google.com/drive/folders/1XVKYhDNLWCRxzYRc9opasEyo6Dp6puUX?usp=sharing">{{$hero->cta}}</a>
-        </div>
-
-        <div class="hidden hero-banner md:block">
-            <div class="absolute-1">
-                <div class="hover-1">
-                    <div class="toga">
-                        <x-zondicon-education class="hover-icon" />
+    <div class="py-12">
+        <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-transparent shadow-none md:bg-white md:shadow-xl sm:rounded-2xl animate-fadeIn">
+                <div class="p-6 text-gray-900">
+                    <a class="secondary-button" href="{{ route('galleries') }}">
+                        <x-heroicon-o-arrow-left class="w-5" />
+                        Back
+                    </a>
+                    <div style="background-image: url({{ $gallery->img }})"
+                        class="w-full relative aspect-[16/9] bg-center bg-cover rounded-[3rem] drop-shadow-2xl mt-5 overflow-hidden text-white">
+                        <div
+                            class="absolute flex flex-col justify-end w-full h-full p-10 xl:p-16 bg-gradient-to-t from-black/70 to-black/0">
+                            <h1 class="text-xl lg:text-[2rem] font-bold">{{$gallery->name}}</h1>
+                            <p class="mt-5 text-xs text-neutral-300 lg:text-base">{{$gallery->desc}}</p>
+                        </div>
                     </div>
-                    <h5>{{$statistics[0]->amount}} Siswa Siswi</h5>
-                    <div class="avatar-container">
-                        @for ($i = 0; $i <= 4; $i++) <div class="avatar">
-                            <div class="avatar-width">
-                                <img src="/assets/images/profile_placeholder.webp" />
+
+                    <h4 class="px-16 mt-10 title">Images</h4>
+                    <div class="flex flex-wrap w-full mt-5 px-14">
+                        @foreach ($gallery->images as $image)
+
+                        <button onclick="focused{{$image->id}}.showModal()"
+                            style="background-image: url({{$image->image}})"
+                            class="m-2 overflow-hidden transition-all duration-300 bg-center bg-cover shadow-lg hover:shadow-2xl w-36 aspect-square rounded-2xl hover:scale-110"
+                            alt=""></button>
+
+
+                        <dialog id="focused{{$image->id}}" class="transition-all duration-500 modal">
+                            <div class="relative p-0 overflow-hidden modal-box">
+                                <img src={{$image->image}} class="object-contain w-full h-full">
                             </div>
+                            <form method="dialog" class="modal-backdrop backdrop-blur-sm">
+                                <button>close</button>
+                            </form>
+                        </dialog>
+
+                        @endforeach
                     </div>
-                    @endfor
 
                 </div>
             </div>
         </div>
-
-        <div class="hidden hover-container md:block">
-
-            <div class="hover-2">
-                <x-lineawesome-industry-solid class="hover-icon" />
-                <div class="hover-text">
-                    <h6>Kerja Sama Industri</h6>
-                </div>
-            </div>
-
-            <div class="hover-3">
-                <x-fontisto-react class="hover-icon" />
-                <div class="hover-text">
-                    <h6>Teknologi Terkini</h6>
-                </div>
-            </div>
-        </div>
-
-        <img src="assets/images/banner.webp" class="hidden md:block" alt="">
     </div>
 
 
-    </div>
-
-    {{-- STATISTICS --}}
-    <div class="statistics-container">
-        @foreach ($statistics as $statistic)
-            <div class="statistics" data-aos="fade-up">
-                <h1 class="">{{$statistic->name}}</h1>
-                <p>{{$statistic->amount}}</p>
-            </div>  
-        @endforeach
-    </div>
-
-
-    <div class="section-title">
-        <h5>{{$majors->subtitle}}</h5>
-        <h1>{{$majors->title}}</h1>
-    </div>
-
-    <div class="majors">
-
-        @foreach($majorDetails as $major)
-        <div class="major" data-aos="flip-up">
-            <img src={{$major->img}}>
-
-            <div class="major-text">
-                <h1>{{$major->name}}</h1>
-                <p>{{$major->desc}}</p>
-                <a target="_blank" href={{$major->link}}>Detail</a>
-            </div>
-        </div>
-        @endforeach
-    </div>
-
-    <div class="px-10 md:px-28">
-        <div class=" galleries" >
-            <img src="/assets/images/lapangan.webp" alt="">
-
-
-            <div class="action-button">
-                <h5>{{$gallery->subtitle}}</h5>
-
-
-                <div class="galleries-text">
-                    <h1>{{$gallery->title}}</h1>
-                </div>
-
-                <p>{{$gallery->desc}}</p>
-                <a href={{route('galleries')}}>{{$gallery->cta}}</a>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div class="section-title">
-        <h5>{{$news->subtitle}}</h5>
-        <h1>{{$news->title}}</h1>
-    </div>
-
-    <div class="news">
-        <a data-aos="fade-right" href={{route('show.news', $mostLikedNews)}}>
-            <div class="w-full h-full transition-all duration-500 top-news hover:bg-neutral-100">
-                <img src={{ $mostLikedNews->img }} alt="">
-                <div class="category">
-                    @foreach ($mostLikedNews->categories as $category)
-                    <button type="submit" class="guest-category-button">
-                        {{ $category->title }}</span>
-
-                    </button>
-                    @endforeach
-                </div>
-                <h1 class="news-title">{{ $mostLikedNews->title }}</h1>
-                <h6 class="news-info">By {{ $mostLikedNews->user->name }} on
-                    {{ \Carbon\Carbon::parse($mostLikedNews->created_at)->format('F d, Y') }}<h6>
-            </div>
-
-        </a>
-
-        <div class="recent-news">
-            @foreach ($recentNews as $news)
-            <a data-aos="fade-left" href={{route('show.news', $news)}}>
-                <div class="transition-all duration-500 news-card hover:bg-neutral-100">
-                    <img src={{ $news->img }}>
-
-                    <div class="news-text">
-                        <div class="category-recent">
-                            @foreach ($news->categories as $category)
-                            <div class="guest-category-button-sm">
-                                {{ $category->title }}
-                            </div>
-                            @endforeach
-                        </div>
-                        <h2 class="news-title-small">{{ $news->title }}</h2>
-                        <h6 class="news-info-small">By {{ $news->user->name }} on
-                            {{ \Carbon\Carbon::parse($news->created_at)->format('F d, Y') }}
-                        </h6>
-                    </div>
-                </div>
-            </a>
-            @endforeach
-        </div>
-    </div>
-
-
-    <div class="section-title">
-        <h5>{{$event->subtitle}}</h5>
-        <h1>{{$event->title}}</h1>
-    </div>
-
-    <div class="events-container {{$upcomingEvents->count() < 3 ? " justify-center" : "justify-start" }}">
-
-        @foreach ($upcomingEvents as $event)
-
-        <div class="event-card group" data-aos="flip-up">
-            <img src={{$event->img}} alt="">
-
-            <div class="event-text">
-                <h1>{{$event->name}}</h1>
-                <p>{{$event->short_desc}}</p>
-            </div>
-            <a href={{route('show.event', $event)}}
-                class="group-hover:translate-x-0 translate-x-[104%] transition-all duration-500 ease-in-out blur-md group-hover:blur-none">See
-                Details</a>
-        </div>
-
-        @endforeach
-
-    </div>
-
-
-
-
-    {{-- FOOTER --}}
-    <div class="relative bg-blue-900 mt-52">
-        <svg class="absolute top-0 w-full h-6 -mt-5 text-blue-900 sm:-mt-10 sm:h-16" preserveAspectRatio="none"
-            viewBox="0 0 1440 54">
-            <path fill="currentColor"
-                d="M0 22L120 16.7C240 11 480 1.00001 720 0.700012C960 1.00001 1200 11 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z">
-            </path>
-        </svg>
-        <div class="max-w-2xl py-10 mx-auto text-white">
-            <div class="text-center">
-                <h3 class="mb-3 text-3xl"> Download aplikasi 4Hype</h3>
-                <p> Aplikasi pusat informasi SMKN 4 Bogor. </p>
-                <div class="flex justify-center my-10">
-                    <div class="flex items-center w-auto px-4 py-2 mx-2 bg-white rounded-lg w-52">
-                        <img src="/assets/icons/playstore.png" class="w-7 md:w-8">
-                        <div class="ml-3 text-left">
-                            <p class='text-xs text-blue-800'>Download on </p>
-                            <p class="text-sm font-semibold text-blue-800 md:text-base"> Google Play Store </p>
-                        </div>
-                    </div>
-                    <div class="flex items-center w-auto px-4 py-2 mx-2 bg-white rounded-lg w-44">
-                        <img src="/assets/icons/apple.png" class="w-7 md:w-8">
-                        <div class="ml-3 text-left">
-                            <p class='text-xs text-blue-900'>Download on </p>
-                            <p class="text-sm font-semibold text-blue-800 md:text-base"> Apple Store </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col items-center text-sm text-white mt-28 md:flex-row md:justify-between">
-                <p class="order-2 mt-8 md:order-1 md:mt-0"> &copy; SMKN 4 Bogor, 2024. </p>
-                <div class="order-1 md:order-2">
-                    <span class="px-2">About us</span>
-                    <span class="px-2 border-l">Contact us</span>
-                    <span class="px-2 border-l">Privacy Policy</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <x-backdrop />
 
 </body>
 

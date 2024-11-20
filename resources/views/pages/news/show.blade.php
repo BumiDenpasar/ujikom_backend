@@ -85,7 +85,7 @@
                                 <div class="w-10 rounded-full">
                                     <img
                                     alt="Tailwind CSS chat bubble component"
-                                    src="/assets/images/profile_placeholder.png" />
+                                    src="/assets/images/profile_placeholder.webp" />
                                 </div>
                                 </div>
                                 <div class="chat-header">
@@ -146,7 +146,7 @@
             </label>
 
 
-            <button class="w-full mt-8 text-xl main-button" type="submit">Add Category</button>
+            <button class="w-full mt-8 main-button" type="submit">Add Category</button>
         </form>
 
         <div class="w-full mt-3 modal-action">

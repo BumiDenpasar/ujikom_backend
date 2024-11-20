@@ -49,10 +49,9 @@ class CategoryController extends BaseController
         $category = Category::create($input);
 
         if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('public/images');
+            $imagePath = $request->file('img')->store('images', 'public');
             $imageUrl = str_replace('public/', 'storage/', $imagePath);
-            $category->img = $imageUrl;
-            $category->save();
+            $category->img = '/storage/' . $imagePath;            $category->save();
         }
    
         return $this->sendResponse(new CategoryResource($category), 'category created successfully.');
@@ -99,10 +98,9 @@ class CategoryController extends BaseController
    
         $category->title = $input['title'];
         if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('public/images');
+            $imagePath = $request->file('img')->store('images', 'public');
             $imageUrl = str_replace('public/', 'storage/', $imagePath);
-            $category->img = $imageUrl;
-            $category->save();
+            $category->img = '/storage/' . $imagePath;            $category->save();
         }
         $category->save();
    

@@ -1,6 +1,6 @@
-<nav x-data="{ open: false }" class="mx-auto nav bg-white border-b border-gray-100 min-w-[90%] md:min-w-0 w-max rounded-2xl drop-shadow-lg main-navbar">
+<nav x-data="{ open: false }" class="mx-auto nav bg-white border-b border-gray-100 min-w-[90%] md:min-w-0 w-max rounded-2xl drop-shadow-lg absolute top-5 right-0 left-0">
     <!-- Primary Navigation Menu -->
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
         <div class="flex justify-between h-16 min-w-[50rem]">
 
                     <!-- Logo -->
@@ -30,11 +30,12 @@
                 </div>
 
             
-            <div class="hidden space-x-4 sm:-my-px sm:ms-10 sm:flex">
+            <div class="items-center justify-center hidden py-3 space-x-2 sm:-my-px sm:ms-10 sm:flex">
 
-                <x-guest-auth-link :href="route('register')" wire:navigate>
-                    {{ __('Register') }}
-                </x-guest-au-link>
+                <a class="flex items-center justify-center h-full px-6 text-sm text-white rounded-xl bg-gradient-to-br from-blue-900 to-blue-600" 
+                href="https://drive.google.com/drive/folders/1XVKYhDNLWCRxzYRc9opasEyo6Dp6puUX?usp=sharing">
+                    Get 4Hyped!
+                </a>
 
             </div>
          

@@ -1,6 +1,9 @@
+@import "aos/dist/aos.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 
 /* Menambahkan font Poppins */
 @font-face {
@@ -56,7 +59,11 @@
     }
 
     .body-full{
-        @apply min-h-screen pt-5 bg-gradient-to-br from-white to-blue-100 overflow-x-hidden w-screen h-max
+        @apply min-h-screen pt-5 bg-gradient-to-br from-white to-blue-100 w-screen h-max
+    }
+
+    .hero-section{
+        @apply lg:flex-row flex-col w-screen
     }
 
     .nav {
@@ -65,39 +72,28 @@
 
 
     .section-flex{
-        @apply w-screen h-max pb-10 flex items-center justify-between font-poppins px-28 relative animate-fadeIn
+        @apply w-screen h-max pb-10 flex md:flex-row flex-col items-center justify-between font-poppins px-16 md:px-28 relative animate-fadeIn
     }
 
     .hero-text{
-        @apply w-[110rem] flex flex-col space-y-10 pt-5 mr-5
+        @apply w-full lg:w-[110rem] flex flex-col space-y-10 pt-5 mr-5
     }
 
     .statistics{
-        @apply bg-gradient-to-br from-blue-900 to-blue-600 transition-all duration-500 text-white rounded-2xl px-7 py-8 w-full text-center
+        @apply bg-gradient-to-br animate-downUp from-blue-900 to-blue-600 transition-all duration-500 text-sm text-white rounded-2xl px-7 py-8 w-full text-center
     }
 
-    .students-statistics{
-        @apply animate-downUp
-    }
-
-    .majors-statistics{
-        @apply animate-upDown
-    }
-
-    .industry-statistics{
-        @apply animate-downUp
-    }
 
     .statistics-container{
-        @apply space-x-10 font-sans mt-5
+        @apply space-x-0 space-y-10 md:space-y-0 md:space-x-10 font-sans mt-5 flex flex-col md:flex-row px-10 md:px-28
     }
 
     .statistics h1{
-        @apply font-bold text-4xl
+        @apply font-bold text-2xl
     }
 
     .statistics p{
-        @apply text-sm text-blue-300
+        @apply text-blue-300 text-xl
     }
 
     .category{
@@ -106,27 +102,27 @@
 
 
     .category-recent{
-        @apply flex flex-wrap w-full space-x-1 font-bold
+        @apply flex flex-wrap w-full space-x-3 font-bold
     }
 
     .guest-category-button-sm{
-        @apply text-blue-800 text-xs
+        @apply text-white text-xs bg-blue-800 px-2 py-1 rounded-xl
     }
 
     .guest-category-button{
-        @apply h-10 px-4 overflow-hidden text-sm font-bold text-white transition-all duration-300 bg-blue-600 bg-center bg-cover shadow-lg hover:shadow-2xl rounded-2xl hover:scale-90
+        @apply h-10 px-4 overflow-hidden text-sm font-bold text-white transition-all duration-300 bg-blue-800 bg-center bg-cover shadow-lg hover:shadow-2xl rounded-3xl hover:scale-90
     }
 
     .news-title-small{
-        @apply font-semibold text-lg mt-3
+        @apply font-semibold text-xl mt-3
     }
 
     .news-info-small{
-        @apply text-xs tracking-wide mt-2 text-neutral-400
+        @apply text-xs tracking-wide mt-2 text-neutral-600
     }
 
     .recent-news{
-        @apply flex flex-col space-y-4 w-1/2 flex-none
+        @apply flex flex-col space-y-4 w-full xl:w-1/2 flex-none justify-between
     }
 
 
@@ -135,20 +131,20 @@
     }
 
     .news{
-        @apply space-x-5 h-max flex xl:flex-row flex-col px-28 mt-24
+        @apply space-x-0 space-y-5 xl:space-y-0 xl:space-x-5 h-max flex xl:flex-row flex-col px-16 md:px-28
     }
 
     .news-card{
-        @apply bg-white rounded-2xl p-6 shadow-lg flex space-x-5 items-center h-full
+        @apply bg-white rounded-2xl p-4 shadow-lg flex space-x-5 items-center min-h-[11rem] max-h-[11rem]
     }
 
     .news-text{
-        @apply flex flex-col justify-center
+        @apply flex flex-col justify-start h-full py-3
     }
     
     
     .top-news{
-        @apply bg-white p-10 rounded-2xl w-full xl:w-1/2 font-sans
+        @apply bg-white p-6 rounded-2xl w-full xl:w-1/2 font-sans
     }
 
     .news-title{
@@ -163,13 +159,45 @@
         @apply rounded-2xl object-cover
     }
 
+    .events-container{
+        @apply flex flex-col lg:flex-row overflow-x-scroll space-x-0 space-y-5 lg:space-y-0 lg:space-x-5 w-full mt-10 px-16 md:px-28
+    }
+
+    .event-card{
+        @apply bg-white relative overflow-hidden font-sans w-full lg:w-[50rem] rounded-3xl py-5 pl-8 pr-16 shadow-lg flex space-x-5 items-center h-44 flex-row justify-start
+    }
+
+    .event-card img{
+        @apply w-20 aspect-square object-contain
+    }
+    
+    .event-text{
+        @apply flex flex-col justify-center h-full py-3
+    }
+    
+    .event-text h1{
+        @apply font-semibold text-2xl text-black
+    }
+
+    .event-text p{
+        @apply text-sm tracking-wide mt-1 text-neutral-500
+    }
+
+    .event-card a{
+        @apply  absolute right-0 top-0 text-2xl items-center justify-center flex tracking-wide text-white bg-gradient-to-br from-blue-900 to-blue-600 w-full h-[102%] font-semibold
+    }
+
+    .gallery-image{
+        @apply w-[40%] bg-blue-200 rounded-2xl object-cover aspect-square
+    }
+
 
     .hero-text h5{
         @apply font-bold text-blue-400 text-lg
     }
 
     .text-cluster{
-        @apply flex flex-col -space-y-3 mt-3
+        @apply flex flex-col mt-3
     }
 
     .hero-text a{
@@ -190,7 +218,7 @@
     }
 
     .hero-banner img{
-        @apply h-full aspect-square object-cover rounded-3xl
+        @apply h-[25rem] lg:h-full aspect-square object-cover rounded-3xl
     }
 
     .hover-text{
@@ -243,7 +271,6 @@
     .toga{
         @apply flex flex-col absolute -top-10 right-0 left-0 mx-auto w-max rounded-full p-2 bg-blue-200 text-blue-600 justify-center items-center space-x-5 px-6 py-5
     }
-    
 
     .delete-button-rounded{
         @apply p-2 text-white duration-300 bg-red-500 rounded-full hover:border hover:border-red-500  hover:text-red-500 hover:bg-white drop-shadow-lg
@@ -445,11 +472,15 @@
     }
 
     .backdrop-1{
-        @apply absolute top-[-3rem] right-[5rem] w-36 animate-upDown
+        @apply absolute top-16 right-0 w-36 animate-upDown
     }
 
     .backdrop-2{
         @apply absolute top-[33em] left-[-10rem] w-52 animate-upDown
+    }
+
+    .backdrop{
+        @apply absolute animate-upDown top-[55rem] right-[-3rem] w-52 z-10
     }
 
     .backdrop-3{
@@ -472,6 +503,70 @@
          bg-gradient-to-br from-blue-200 to-blue-50 w-full h-full rounded-2xl hover:text-black hover:scale-90
     }
 
+
+    .galleries a{
+        @apply w-max font-bold hover:scale-90 transition-all duration-500
+            px-6 bg-gradient-to-br from-blue-800 to-blue-500 text-white text-sm rounded-2xl py-4
+    }
+
+    .galleries h5{
+        @apply font-bold text-blue-800 font-poppins text-lg tracking-wide
+    }
+
+    .galleries p{
+        @apply text-neutral-600 text-sm text-justify max-w-xl
+    }
+
+    .galleries{ 
+        @apply space-x-0 space-y-5 lg:space-y-0 lg:space-x-10 bg-white rounded-[3rem] justify-center items-center flex flex-col lg:flex-row p-10 mt-28 w-20 xl:w-max shadow-2xl shadow-blue-200 -z-10 animate-upDown mx-auto
+    }
+
+    .galleries img{
+        @apply w-[10rem] lg:w-[25rem] aspect-square object-cover rounded-3xl
+    }
+
+    .galleries-text{
+        @apply mt-3 font-semibold tracking-tight text-neutral-900 text-[40px] w-full text-balance
+    }
+
+    .action-button{
+        @apply flex flex-col space-y-5 w-full lg:max-w-xl
+    }
+
+    .section-title h1{
+        @apply text-3xl md:text-[3rem] font-extrabold tracking-wide mt-2 md:mt-5
+    }
+    .section-title{
+        @apply text-center mt-28 mb-10
+    }
+
+    .section-title h5{
+        @apply font-semibold text-blue-600
+    }
+
+    .majors{
+        @apply w-full px-16 md:px-28 grid grid-cols-1 md:grid-cols-2 gap-5
+    }
+
+    .major{
+        @apply bg-white rounded-3xl p-6 font-sans flex space-x-5 items-center shadow-xl
+    }
+
+    .major img{
+        @apply h-36 aspect-square object-contain rounded-2xl
+    }
+
+    .major-text p{
+        @apply  text-neutral-600 pr-10 mt-1 text-sm tracking-wide mb-5
+    }
+
+    .major-text h1{
+        @apply  text-black text-xl tracking-wide font-bold
+    }
+
+    .major-text a{
+        @apply  text-white bg-gradient-to-br to-blue-600 from-blue-900 rounded-lg px-8 py-3 text-sm font-bold w-max
+    }
 
 
 }

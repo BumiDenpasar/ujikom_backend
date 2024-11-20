@@ -17,7 +17,7 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased body-full">
+    <body class="overflow-x-hidden font-sans antialiased body-full">
 
        
         <div class="main-body">

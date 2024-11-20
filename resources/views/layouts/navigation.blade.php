@@ -30,6 +30,10 @@
                     <x-nav-link :href="route('dashboard.categories')" :active="request()->routeIs('dashboard.categories')" wire:navigate>
                         {{ __('Categories') }}
                     </x-nav-link>
+
+                    <x-nav-link :href="route('dashboard.homepage')" :active="request()->routeIs('dashboard.homepage')" wire:navigate>
+                        {{ __('Edit Homepage') }}
+                    </x-nav-link>
                 </div>
             </div>
 

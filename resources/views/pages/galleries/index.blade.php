@@ -112,7 +112,7 @@
                             {{-- modal --}}
                             <dialog id="delete{{ $gallery->id }}" class="modal modal-bottom sm:modal-middle">
                                 <div class="flex flex-col items-center justify-center modal-box">
-                                    <img src="/assets/images/alert.png" class="object-cover w-40 aspect-square" alt="">
+                                    <img src="/assets/images/alert.webp" class="object-cover w-40 aspect-square" alt="">
                                     <h3 class="w-full text-2xl font-bold text-center">Are you sure?</h3>
                                     <div class="flex items-center justify-center w-full mt-5 space-x-4 modal-action">
                                         <form action="{{ route('dashboard.galleries.destroy', $gallery) }}" method="POST">

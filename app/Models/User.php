@@ -22,10 +22,12 @@ class User extends Authenticatable
      const ROLE_USER = 3;
      
     protected $fillable = [
+        'profile_pic',
         'name',
         'email',
         'role',
         'password',
+
     ];
   
 

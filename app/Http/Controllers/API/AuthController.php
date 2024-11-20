@@ -103,7 +103,7 @@ class AuthController extends BaseController
             }
         
             // Store new profile picture in storage/app/images
-            $imagePath = $request->file('profile_pic')->store('images');
+            $imagePath = $request->file('profile_pic')->store('images', 'public');
             $imageUrl = str_replace('images/', 'storage/images/', $imagePath);
 
         

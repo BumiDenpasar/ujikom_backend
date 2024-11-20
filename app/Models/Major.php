@@ -10,10 +10,6 @@ class Major extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'link', 'img'];
+    protected $fillable = ['name', 'link', 'desc', 'img'];
 
-    public function image():HasOne
-    {
-        return $this->hasOne(Image::class);
-    }
 }

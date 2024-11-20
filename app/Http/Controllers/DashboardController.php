@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Event;
+use App\Models\Gallery;
 use App\Models\Love;
+use App\Models\Major;
 use App\Models\Post;
+use App\Models\Statistic;
+use App\Models\Text;
 use App\Models\Visit;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -55,6 +59,37 @@ class DashboardController extends Controller
             'latestComments', 
             'visits',
             'user'
+        ));
+    }
+
+
+    public function editHome(){
+        $mostLikedNews = Post::withCount('loves')->orderBy('loves_count', 'desc')->first();
+        $mostViewedNews = Post::orderBy('views', 'desc')->first();
+
+        $recentNews = Post::orderBy('created_at', 'desc')->limit(3)->get();
+
+        $mostCommentedNews = Post::withCount('comments')->orderBy('comments_count', 'desc')->first();
+       
+        $upcomingEvents = Event::where('date', '>', Carbon::now())->orderBy('date', 'asc')->limit(5)->get();
+
+
+        $hero = Text::where('placement','LIKE','hero')->first();
+        $majors = Text::where('placement','LIKE','majors')->first();
+        $gallery = Text::where('placement','LIKE','gallery')->first();
+        $news = Text::where('placement','LIKE','news')->first();
+        $event = Text::where('placement','LIKE','event')->first();
+        $statistics = Statistic::all();
+        $majorDetails = Major::all();
+
+        return view("pages.homepage.index", compact(
+            'majorDetails',
+            'hero',
+            'majors',
+            'gallery',
+            'news',
+            'event',
+            'statistics'
         ));
     }
     

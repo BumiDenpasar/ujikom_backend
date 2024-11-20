@@ -134,7 +134,7 @@
                         <div class="upcoming-events-list">
                             @foreach ($latestComments as $comment)
                                 <div class="upcoming-events-card">
-                                    <img src='/assets/images/profile_placeholder.png'>
+                                    <img src='/assets/images/profile_placeholder.webp'>
                                     <div>
                                         <divc class="recent-comment-name">
                                             <h5>{{ $comment->name }}</h5>

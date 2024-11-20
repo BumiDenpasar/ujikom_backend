@@ -5,8 +5,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MajorController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StatisticController;
+use App\Http\Controllers\TextController;
 use App\Http\Middleware\CheckSuperAdminRole;
 use Illuminate\Support\Facades\Route;
 
@@ -16,11 +19,20 @@ Route::get('/', [HomeController::class, 'index'])
 Route::get('/news', [HomeController::class, 'news'])
     ->name('news');
 
+Route::get('/news/{news}', [HomeController::class, 'showNews'])
+->name('show.news');
+
 Route::get('/events', [HomeController::class, 'events'])
     ->name('events');
 
+Route::get('/events/{event}', [HomeController::class, 'showEvent'])
+    ->name('show.event');
+
 Route::get('/galleries', [HomeController::class, 'galleries'])
     ->name('galleries');
+
+Route::get('/galleries/{gallery}', [HomeController::class, 'showGallery'])
+    ->name('show.gallery');
 
 Route::middleware([CheckSuperAdminRole::class])->group(function () {
     Route::prefix('dashboard')->group(function () {
@@ -130,11 +142,39 @@ Route::middleware([CheckSuperAdminRole::class])->group(function () {
                 ->name('dashboard.categories.destroy');
         });
 
+        Route::prefix('homepage')->group(function () {
+            Route::get('/', [DashboardController::class, 'editHome'])
+                ->middleware(['auth'])
+                ->name('dashboard.homepage');
 
+            Route::put('/hero/{text}', [TextController::class, 'updateHero'])
+                ->middleware(['auth'])
+                ->name('hero.update');
 
+            Route::put('/event/{text}', [TextController::class, 'updateEvent'])
+                ->middleware(['auth'])
+                ->name('event.update');
 
+            Route::put('/news/{text}', [TextController::class, 'updateNews'])
+                ->middleware(['auth'])
+                ->name('news.update');
 
+            Route::put('/gallery/{text}', [TextController::class, 'updateGallery'])
+                ->middleware(['auth'])
+                ->name('gallery.update');
 
+            Route::put('/majors/{text}', [TextController::class, 'updateMajors'])
+                ->middleware(['auth'])
+                ->name('majors.update');
+
+            Route::put('/stats/{stats}', [StatisticController::class, 'update'])
+                ->middleware(['auth'])
+                ->name('stats.update');
+
+            Route::put('/major-detail/{major}', [MajorController::class, 'update'])
+                ->middleware(['auth'])
+                ->name('major-detail.update');
+        });
 
         Route::prefix('galleries')->group(function () {
             Route::get('/', [GalleryController::class, 'index'])

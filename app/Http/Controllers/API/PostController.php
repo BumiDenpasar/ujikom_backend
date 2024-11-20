@@ -77,8 +77,7 @@ class PostController extends BaseController
 
 
         if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('public/images');
-            $imageUrl = str_replace('public/', 'storage/', $imagePath);
+            $imagePath = $request->file('img')->store('images', 'public');
         }
         // Membuat post baru
         $post = Post::create([
@@ -86,7 +85,7 @@ class PostController extends BaseController
             'user_id' => $input['user_id'],
             'body' => $input['body'],
             'read_time' => $input['read_time'],
-            'img' => $imageUrl,
+            'img' => '/storage/' . $imagePath,
         ]);
 
         // Menambahkan kategori ke post menggunakan attach
@@ -177,7 +176,7 @@ class PostController extends BaseController
             'title' => 'required|string|max:255',
             'category_ids' => 'required|array', // Validasi sebagai array
             'category_ids.*' => 'exists:categories,id', // Setiap Color_id harus valid
-            'user_id' => 'required|exists:users,id',
+            //'user_id' => 'sometimes|exists:users,id',
             'body' => 'required|string',
             'read_time' => 'required|numeric|min:0',
         ]);
@@ -187,14 +186,13 @@ class PostController extends BaseController
         }
 
         $post->title = $input['title'];
-        $post->user_id = $input['user_id'];
+        //$post->user_id = $input['user_id'];
         $post->body = $input['body'];
         $post->read_time = $input['read_time'];
         if ($request->hasFile('img')) {
-            $imagePath = $request->file('img')->store('public/images');
+            $imagePath = $request->file('img')->store('images', 'public');
             $imageUrl = str_replace('public/', 'storage/', $imagePath);
-            $post->img = $imageUrl;
-            $post->save();
+            $post->img = '/storage/' . $imagePath;            $post->save();
         }
         $post->save();
 
@@ -260,7 +258,7 @@ class PostController extends BaseController
         $post = Post::findOrFail($postId);
 
         // Simpan file gambar ke dalam folder storage (misalnya: public/images)
-        $imagePath = $request->file('image')->store('public/images');
+        $imagePath = $request->file('image')->store('public/images', 'public');
         $imageUrl = str_replace('public/', 'storage/', $imagePath);
 
         $post->images()->create([
